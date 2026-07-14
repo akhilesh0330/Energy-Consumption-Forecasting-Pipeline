@@ -1,3 +1,4 @@
+
 # ⚡ Energy Consumption Forecasting Pipeline
 
 Production-ready Azure Data Engineering project for **Energy Consumption Analytics** using **Azure Data Lake Storage Gen2 (ADLS), Azure Data Factory, Azure Databricks (PySpark), Delta Lake, dbt Cloud, Databricks Workflows, Apache Airflow, and Power BI**.
@@ -18,18 +19,13 @@ It follows the **Medallion Architecture** to progressively improve data quality 
 
 # 🏗️ High Level Architecture
 
-<p align="center">
-<img src="Architecture/High_Level_Architecture.png" width="1000">
-</p>
+<img width="1536" height="1024" alt="HLD" src="https://github.com/user-attachments/assets/583189a7-4c0b-46a4-8115-62ac5233378a" />
 
 ---
 
 # 🏛️ Medallion Architecture
 
-<p align="center">
-<img src="Architecture/Medallion_Architecture.png" width="1000">
-</p>
-
+<img width="1536" height="1024" alt="Medallion_architectue" src="https://github.com/user-attachments/assets/4b281d74-ca85-428a-b5c7-a974128faeef" />
 ---
 
 # ⚙️ Technology Stack
@@ -222,6 +218,8 @@ The complete pipeline is orchestrated using:
 # 📊 Business Dashboards
 
 ## ⚡ Energy Consumption Dashboard
+<img width="6000" height="2941" alt="executive_dashboard" src="https://github.com/user-attachments/assets/3eda1f57-5827-4585-a727-cc99a655ddf6" />
+
 
 Tracks total and average energy usage across regions, cities, and customer categories.
 
@@ -229,17 +227,21 @@ Tracks total and average energy usage across regions, cities, and customer categ
 
 ## 🌦 Weather Impact Dashboard
 
+<img width="6000" height="5125" alt="weather_impact_dashboard" src="https://github.com/user-attachments/assets/9531ce83-d115-4248-8c63-c053f1b0d156" />
+
 Analyzes the relationship between weather conditions and energy consumption.
 
 ---
 
 ## 🔌 Device Monitoring Dashboard
+<img width="6000" height="3999" alt="device_monitoring_dashboard" src="https://github.com/user-attachments/assets/645f7108-d9b0-4fae-ba50-94b47f7316d9" />
 
 Monitors runtime, efficiency, and operational health of connected devices.
 
 ---
 
 ## 💰 Billing Analytics Dashboard
+<img width="6000" height="5125" alt="billing_analytics_dashboard" src="https://github.com/user-attachments/assets/0ea1d7b7-cd18-4d55-b3de-2d9a63c431ad" />
 
 Analyzes billing, tariff plans, and revenue across regions and customer categories.
 
