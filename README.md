@@ -2,62 +2,62 @@
 
 Production-ready Azure Data Engineering project for **Energy Consumption Analytics** using **Azure Data Lake Storage Gen2 (ADLS), Azure Data Factory, Azure Databricks (PySpark), Delta Lake, dbt Cloud, Databricks Workflows, Apache Airflow, and Power BI**.
 
-The project implements an end-to-end ETL pipeline following the **Medallion Architecture (Bronze → Silver → Gold)** to transform raw energy datasets into business-ready analytics.
+The project implements an end-to-end ETL pipeline following the **Medallion Architecture (Bronze → Silver → Gold)** to transform raw energy consumption data into business-ready analytics.
 
 ---
 
 # 📖 Project Overview
 
-The **Energy Consumption Forecasting Pipeline** is an end-to-end Azure Data Engineering project designed to build a scalable and reliable Lakehouse architecture.
+The **Energy Consumption Forecasting Pipeline** is an end-to-end Azure Data Engineering project designed to build a scalable and reliable Lakehouse architecture for energy analytics.
 
-The project automates data ingestion, transformation, validation, dimensional modeling, workflow orchestration, and dashboard reporting using Azure cloud services.
+The pipeline automates data ingestion, transformation, validation, dimensional modeling, workflow orchestration, and dashboard reporting using Azure cloud services.
 
-The pipeline follows the **Medallion Architecture** to improve data quality from raw ingestion to analytics-ready datasets.
+It follows the **Medallion Architecture** to progressively improve data quality and deliver trusted datasets for analytics.
 
 ---
 
-# 🏗 High Level Architecture
+# 🏗️ High Level Architecture
 
 <p align="center">
-<img src="Architecture/HLD.png" width="1000">
+<img src="Architecture/High_Level_Architecture.png" width="1000">
 </p>
 
 ---
 
-# 🏛 Low Level Architecture
+# 🏛️ Medallion Architecture
 
 <p align="center">
-<img src="Architecture/LLD.png" width="1000">
+<img src="Architecture/Medallion_Architecture.png" width="1000">
 </p>
 
 ---
 
-# ⚙ Technology Stack
+# ⚙️ Technology Stack
 
-| Category | Technology |
-|-----------|------------|
-| Cloud | Microsoft Azure |
+| Category | Technologies |
+|-----------|--------------|
+| Cloud | Azure |
 | Storage | Azure Data Lake Storage Gen2 |
 | ETL | Azure Data Factory |
 | Processing | Azure Databricks |
 | Language | PySpark |
-| Storage Format | Delta Lake |
-| Modeling | dbt Cloud |
-| SQL Engine | Databricks SQL Warehouse |
+| Data Lake | Delta Lake |
+| Data Modeling | dbt Cloud |
+| Warehouse | Databricks SQL Warehouse |
 | Orchestration | Databricks Workflows, Apache Airflow |
-| Reporting | Power BI / Databricks Dashboards |
+| Reporting | Power BI |
+| Version Control | Git, GitHub |
 | Testing | Pytest |
-| Version Control | Git & GitHub |
 
 ---
 
-# 📂 End-to-End Project Flow
+# 📂 Project Workflow
 
 ```text
-CSV Files
+Kaggle Dataset
         │
         ▼
-Azure Data Lake Storage Gen2
+Azure Data Lake Storage (CSV)
         │
         ▼
 Azure Data Factory
@@ -87,37 +87,84 @@ Gold Layer
 Databricks SQL Warehouse
         │
         ▼
-Dashboards
+Power BI Dashboard
 ```
 
 ---
 
-# 🥉 Bronze Layer
+# 🚀 Project Implementation
 
-- Read Parquet files from ADLS
-- Raw Delta Tables
+## Step 1 – Data Ingestion
+
+- Created Azure Storage Account
+- Created ADLS Gen2 Container
+- Uploaded Energy Consumption CSV files
+- Verified successful ingestion
+
+---
+
+## Step 2 – Azure Data Factory
+
+- Created Linked Services
+- Configured Source Dataset
+- Configured Sink Dataset
+- Converted CSV files into Parquet
+- Stored transformed files in ADLS
+
+---
+
+## 🥉 Bronze Layer
+
+### Objective
+
+Store raw data in Delta format.
+
+### Tables
+
+- Bronze Energy Usage
+- Bronze Weather Stream
+- Bronze Device Metrics
+- Bronze Grid Load
+- Bronze Tariff Metrics
+
+### Features
+
 - Metadata Columns
 - Audit Columns
-- Watermarking
 - Schema Evolution
+- Watermarking
 - Error Logging
 
 ---
 
-# 🥈 Silver Layer
+## 🥈 Silver Layer
 
-- Data Validation
+### Objective
+
+Clean and validate Bronze data.
+
+### Tables
+
+- Energy Usage
+- Weather Stream
+- Device Metrics
+- Grid Load
+- Tariff Metrics
+
+### Transformations
+
 - Remove Duplicates
 - Handle Null Values
 - Standardize Data
 - Data Type Conversion
 - Surrogate Keys
 - SCD Type 2
+- Data Validation
 - Delta Optimization
 
 ---
 
-# 🥇 Gold Layer (dbt)
+## 🥇 Gold Layer (dbt Cloud)
 
 ### Staging Models
 
@@ -131,8 +178,8 @@ Dashboards
 
 - dim_date
 - dim_household
-- dim_device
 - dim_weather
+- dim_device
 - dim_grid
 - dim_tariff
 
@@ -154,8 +201,9 @@ Dashboards
 
 # 🔄 Pipeline Orchestration
 
+The complete pipeline is orchestrated using:
+
 - Azure Data Factory
-- Azure Databricks
 - Databricks Workflows
 - Apache Airflow
 - dbt Cloud
@@ -171,86 +219,95 @@ Dashboards
 
 ---
 
-# 📊 Dashboard Gallery
+# 📊 Business Dashboards
 
-## Executive Dashboard
+## ⚡ Energy Consumption Dashboard
 
-<p align="center">
-<img src="Dashboard/executive_dashboard.jpg" width="900">
-</p>
+Tracks total and average energy usage across regions, cities, and customer categories.
 
 ---
 
-## Weather Impact Dashboard
+## 🌦 Weather Impact Dashboard
 
-<p align="center">
-<img src="Dashboard/weather_impact_dashboard.jpg" width="900">
-</p>
+Analyzes the relationship between weather conditions and energy consumption.
 
 ---
 
-## Device Monitoring Dashboard
+## 🔌 Device Monitoring Dashboard
 
-<p align="center">
-<img src="Dashboard/device_monitoring_dashboard.jpg" width="900">
-</p>
+Monitors runtime, efficiency, and operational health of connected devices.
 
 ---
 
-## Billing Analytics Dashboard
+## 💰 Billing Analytics Dashboard
 
-<p align="center">
-<img src="Dashboard/billing_analytics_dashboard.jpg" width="900">
-</p>
+Analyzes billing, tariff plans, and revenue across regions and customer categories.
 
 ---
 
-# 📁 Repository Structure
+# 📁 Project Structure
 
 ```text
 Energy-Consumption-Forecasting-Pipeline
 
 │── Architecture
-│   ├── HLD.png
-│   └── LLD.png
-│
+│── Datasets
+│── ADF
 │── Bronze
 │── Silver
 │── Gold
+│── Airflow
 │── Dashboard
 │── Testing
 │── docs
-│── README.md
+└── README.md
 ```
 
 ---
 
-# 🎯 Project Highlights
+# 📸 Project Screenshots
 
-- End-to-End Azure Data Engineering Pipeline
-- Medallion Architecture
-- Azure Data Factory ETL
-- Azure Databricks (PySpark)
-- Delta Lake
-- dbt Cloud Data Modeling
-- Databricks SQL Warehouse
-- Databricks Dashboards
-- Apache Airflow Orchestration
-- Data Validation & Quality Checks
-- Pytest Automation
-- GitHub Version Control
+## Azure Data Factory
+
+<p align="center">
+<img src="docs/adf_pipeline.png" width="900">
+</p>
 
 ---
 
-# 📌 Business Outcomes
+## Databricks Workflow
 
-- Automated ETL Pipeline
-- Improved Data Quality
-- Lakehouse Architecture
-- Scalable Analytics Platform
+<p align="center">
+<img src="docs/databricks_workflow.png" width="900">
+</p>
+
+---
+
+## dbt Lineage
+
+<p align="center">
+<img src="docs/dbt_lineage.png" width="900">
+</p>
+
+---
+
+## Power BI Dashboard
+
+<p align="center">
+<img src="docs/powerbi_dashboard.png" width="900">
+</p>
+
+---
+
+# 🎯 Business Outcomes
+
+- Automated end-to-end ETL pipeline
+- Improved data quality through Medallion Architecture
+- Automated workflow orchestration
 - Business-ready Gold Layer
-- Interactive Dashboards
-- Optimized Query Performance
+- Interactive dashboards
+- Scalable Lakehouse implementation
+- Analytics-ready datasets for future forecasting
 
 ---
 
@@ -258,4 +315,4 @@ Energy-Consumption-Forecasting-Pipeline
 
 **Akhilesh Chanda**
 
-Azure Data Engineering Project
+Azure Data Engineering Project+
